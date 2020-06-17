@@ -1,0 +1,2 @@
+<button open-type="getUserInfo" bindgetuserinfo="mylogin">点击登录</button>
+<view>{{userData.nickName}}</view>

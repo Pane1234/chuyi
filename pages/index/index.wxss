@@ -1,0 +1,17 @@
+/**index.wxss**/
+.index-top-input{
+  background: rgb(220, 220, 220);
+  height: 100rpx;
+  margin: 30rpx 20rpx 0 20rpx;
+}
+.index-top-input-txt{
+  color: #000;
+  font-size: 40rpx;
+  text-align: center;
+}
+
+
+.meal-txt{
+ color: #fff;
+ font-size: x-large; 
+}
