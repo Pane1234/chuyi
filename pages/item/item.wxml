@@ -1,3 +1,26 @@
-<!--pages/item/item.wxml-->
+<!-- 导航栏 -->
+<cu-custom bgColor="bg-white">
+	<view slot="content" class="text-black">菜谱分类</view>
+</cu-custom>
+<view wx:for="{{itemList}}">
+<!-- 分类标题 -->
+  <view class="cu-bar bg-white solid-bottom solid-top">
+    <view class="action">
+      <text class="cuIcon-title text-orange "></text> {{item.title}}
+    </view>
+  </view>
+  <!-- 小标题 -->
+  <view class="cu-list grid col-3 no-border">
+    <view wx:for="{{item.entries}}" wx:for-item="menuitem"  class="padding-top padding-right " data-keyword="{{menuitem.name}}" bindtap="toSearchres">
+      <view class="bg-img padding-top-xl flex align-end radius " style="background-image: url('{{menuitem.picurl}}');height: 170rpx;"  >
+      <view class="padding padding-top-xl flex-sub" style="color:white;">{{menuitem.name}}
+      </view>
+    </view>
+    
+  </view>
+
+  </view> 
+  
+</view>
 
 

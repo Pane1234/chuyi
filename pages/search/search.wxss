@@ -1,0 +1,13 @@
+.preselectedWords{
+  position: absolute;
+  top: 230rpx;
+  z-index: 9999;
+  background: #fff;
+  width: 100%;
+}
+.preselectedWords view{
+  padding-left: 30rpx;
+  width: 100%;
+  height: 60rpx;
+  line-height: 60rpx;
+}

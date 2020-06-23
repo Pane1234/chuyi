@@ -1,0 +1,22 @@
+/* 食物名字的样式 */
+.food-name{
+  text-align: center;
+  font-size: xx-small;
+}
+
+.child {
+  transition: all .6s ease;
+  height: 120rpx;
+  opacity:1;
+}
+
+.hide {
+  height: 0;
+  opacity:0;
+}
+/* 详情页底部收藏分享按钮 */
+.detail-bottom{
+  position: absolute;
+  bottom: 0;
+  z-index: 9999;
+}

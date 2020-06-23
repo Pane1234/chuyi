@@ -1,0 +1,50 @@
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">菜谱搜索</view>
+</cu-custom>
+<!-- 搜索框 -->
+<view class="cu-bar search solid-bottom padding">
+  <input class="" type="text" placeholder="今天想吃点什么？" confirm-type="search" value="{{searchWord}}"  bindinput="searchWordInput" bindfocus="hasfocus" >
+  </input>
+  <view class="action">
+    <text class="text-red margin-right" wx:if="{{searchWord!=''}}" bindtap="searchCilck">搜索</text>
+    <text bindtap="cancelClick" wx:if="{{isResult==false}}">取消</text>
+  </view>
+</view>
+<!-- 预选词 -->
+<view wx:if="{{preselectedWords}}" class="preselectedWords" wx:if="{{isResult==false}}">
+  <view wx:for="{{preselectedWords}}" data-keyword="{{item}}" bindtap="pWordsClick">{{item}}</view>
+</view>
+
+<!-- 热门搜索标签 -->
+<view class="padding-left padding-right shadow-lg" wx:if="{{isResult==false}}">
+  <view class="cu-tag round margin-top margin-right" wx:for="{{keyWords}}" data-keyword="{{item}}" bindtap="toSearchres">{{item}}</view>
+</view>
+<!-- 搜索结果 -->
+<view wx:if="{{isResult}}">
+  <view wx:for="{{resList}}" wx:key="id" data-foodid="{{item.content.id}}" bindtap="toDetail">
+    <view class="cu-card article no-card" wx:if="{{item.style=='recipe_item'}}">
+      <view class="cu-item shadow">
+        <view class="content">
+          <image src="{{item.content.object.photo}}" mode="aspectFill"></image>
+          <view class="desc">
+            <view class="text-content"><text class="text-black text-bold">{{item.content.object.name}}</text>
+              <view class="text-sm">{{item.content.object.desc}}</view>
+            </view> 
+            <view>
+              <view class="cu-tag bg-red light sm round">超赞作者</view>
+              <!-- <view class="cu-tag bg-green light sm round">史诗</view> -->
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<import src="../../utils/temp/temp.wxml" />
+<!-- 模态框 -->
+<template is="modalTemp" data="{{modalName:modalName}}"></template>
+<!-- 加载动画 -->
+<template is="loadTemp" data="{{isLoading:isLoading}}"></template>

@@ -1,4 +1,18 @@
 /**index.wxss**/
+/* 顶部厨艺的样式 */
+.chuyi{
+  margin-top: 200rpx;
+  text-align: center;
+  font-size: xx-large;
+  padding-bottom: 50rpx;
+}
+.chu{
+color: rgb(247, 181, 110);
+}
+.yi{
+color: rgba(255, 57, 57, 0.858);
+}
+
 .index-top-input{
   background: rgb(220, 220, 220);
   height: 100rpx;
@@ -8,10 +22,22 @@
   color: #000;
   font-size: 40rpx;
   text-align: center;
+  
 }
-
-
+/* 三餐 */
+.index-top{
+  display: flex;
+  flex-direction: row;
+}
+.index-top view{
+  width: 50%;
+  
+}
 .meal-txt{
  color: #fff;
  font-size: x-large; 
+}
+/* 卡片的分割线 */
+.food-card{
+  border-bottom: 1rpx rgb(101, 101, 101) solid;
 }

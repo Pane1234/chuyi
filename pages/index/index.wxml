@@ -1,58 +1,76 @@
-<input placeholder="今天想吃点什么？" placeholder-class="index-top-input-txt" class="index-top-input radius shadow-blur"></input>
-<!-- 三餐 -->
-<view class="flex">
- <!-- 早餐 -->
-  <view class="flex-sub padding-sm radius">
-    <view class="padding-xl radius shadow-blur margin-top bg-img" style="background-image:url(http://dwz.date/bdEN);">
-      <view class="meal-txt">早餐</view>
-    </view>
-  </view>
-  <!-- 午餐 -->
-  <view class="flex-sub padding-sm  radius">
-      <view class="padding-xl radius shadow-blur margin-top bg-img" style="background-image:url(http://dwz.date/bdFa);">
-        <view class="meal-txt">午餐</view>
-      </view>
-  </view>
+<view class="chuyi">
+  <text class="chu">厨</text>
+  <text class="yi">易</text>
+</view>
+<view>
+  <input placeholder="今天想吃点什么？" placeholder-class="cuIcon-search index-top-input-txt" class="index-top-input radius shadow-blur margin-top-xl" bindtap="getFoodList" disabled="true"></input>
 </view>
 <view class="flex">
-  <!-- 晚餐 -->
-  <view class="flex-sub padding-sm  radius">
-    <view class="padding-xl radius shadow-blur  bg-img" style="background-image:url(http://dwz.date/bdFf);">
-      <view class="meal-txt">晚餐</view>
+  <view class="flex-sub padding-sm  radius"  bindtap="mealClick" data-meal="早餐">
+    <view class="padding-xl radius shadow-blur bg-white margin-top bg-img" style="background-image:url(https://7973-ysp-nkeva-1301966806.tcb.qcloud.la/zao.png?sign=b11ec6cff755210689e6ddd3f568a3bf&t=1592811896);">
+      <view class="text-xxl text-white">早餐</view>
     </view>
   </view>
-  <!-- 晚餐 -->
-  <view class="flex-sub padding-sm  radius">
-
+  <view class="flex-sub padding-sm  radius" bindtap="mealClick" data-meal="午餐">
+    <view class="padding-xl radius shadow-blur bg-white margin-top bg-img" style="background-image:url(https://7973-ysp-nkeva-1301966806.tcb.qcloud.la/wu.png?sign=015bb40a31af006dfdb4286bfb414277&t=1592812128);">
+      <view class="text-xxl text-white">午餐</view>
+    </view>
   </view>
 </view>
 
-
-<view class="cu-card case">
-  <view class="cu-item shadow">
-    <view class="image">
-      <image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg" mode="widthFix"></image>
-      <view class="cu-tag bg-blue">史诗</view>
-      <view class="cu-bar bg-shadeBottom">
-        <text class="text-cut">我已天理为凭，踏入这片荒芜，不再受凡人的枷锁遏制。我已天理为凭，踏入这片荒芜，不再受凡人的枷锁遏制。</text>
-      </view>
+<view class="flex">
+  <view class="flex-sub padding-sm  radius" bindtap="mealClick" data-meal="晚餐">
+    <view class="padding-xl radius shadow-blur bg-white bg-img" style="background-image:url(https://7973-ysp-nkeva-1301966806.tcb.qcloud.la/wan.png?sign=56c3eff4c6e47e3a4343fab94378e752&t=1592812245);">
+      <view class="text-xxl text-white">晚餐</view>
     </view>
-    <view class="cu-list menu-avatar">
-      <view class="cu-item">
-        <view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);"></view>
-        <view class="content flex-sub">
-          <view class="text-grey">正义天使 凯尔</view>
-          <view class="text-gray text-sm flex justify-between">
-            十天前
-            <view class="text-gray text-sm">
-              <text class="cuIcon-attentionfill margin-lr-xs"></text> 10
-              <text class="cuIcon-appreciatefill margin-lr-xs"></text> 20
-              <text class="cuIcon-messagefill margin-lr-xs"></text> 30
+  </view>
+  <view class="flex-sub padding-sm  radius">
+    <view class="padding-xl radius shadow-blur bg-white bg-img" style="background-image:url(https://7973-ysp-nkeva-1301966806.tcb.qcloud.la/new.png?sign=0a8d1960fcceb7f8ab5c9f2c8a21ee9f&t=1592812184);">
+     <view class="text-xxl text-white"><text  style='display:inline-block;width:1px'></text></view>
+    </view>
+  </view>
+</view>
+
+<view class="text-xl text-black text-center">-热门推荐-</view>
+<!-- 卡片 -->
+<view wx:for="{{foodList}}" wx:key="title" >
+  <view class="cu-card case food-card" bindtap="toDetail" data-foodid="{{item.recipe.id}}" >
+    <view class="cu-item shadow">
+      <view class="image" style="height:400rpx;">
+        <image src="{{item.recipe.photo}}" mode="widthFix"></image>
+        <!--右上角标签 <view class="cu-tag bg-blue">史诗</view> -->
+        <!--图片文字 <view class="cu-bar bg-shadeBottom"> -->
+          <!-- <text class="text-cut">{{item.recipe.name}}</text> -->
+        <!-- </view> -->
+      </view>
+      <view class="cu-list menu-avatar">
+        <view class="cu-item">
+          <view class="cu-avatar round lg" style="background-image:url({{item.recipe.author.photo60}});">
+          </view>
+          <view class="content flex-sub">
+          <!-- 菜名 -->
+            <view class="text-black">{{item.recipe.name}}</view>
+            <!-- 作者名字 -->
+            <view class="text-gray text-sm flex justify-between">
+              {{item.recipe.author.name}}
+              <view class="text-gray text-sm">
+                <text class="cuIcon-attentionfill margin-lr-xs"></text> 10
+                <text class="cuIcon-appreciatefill margin-lr-xs"></text> 20
+                <text class="cuIcon-messagefill margin-lr-xs"></text> 30
+              </view>
             </view>
           </view>
         </view>
       </view>
     </view>
   </view>
-
 </view>
+
+<import src="../../utils/temp/temp.wxml" />
+<!-- 模态框 -->
+<template is="modalTemp" data="{{modalName:modalName}}"></template>
+<template is="loadTemp" data="{{isLoading:isLoading}}"></template>
+
+
+
+

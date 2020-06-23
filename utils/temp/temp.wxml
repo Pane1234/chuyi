@@ -1,0 +1,34 @@
+<!-- 模态框 -->
+<template name="modalTemp">
+  <view class="cu-modal {{modalName=='Modal'?'show':''}}">
+    <view class="cu-dialog">
+      <view class="cu-bar bg-white justify-end">
+        <view class="content">Modal标题</view>
+        <view class="action" bindtap="hideModal">
+          <text class="cuIcon-close text-red"></text>
+        </view>
+      </view>
+      <view class="padding-xl">
+        Modal 内容。
+      </view>
+    </view>
+  </view>
+</template>
+<!-- 加载 -->
+<template name="loadTemp">
+  <view id="loading" wx:if="{{isLoading}}">
+		<view id="loading-center">
+			<view id="loading-center-absolute">
+				<view class="object" id="object_one"></view>
+				<view class="object" id="object_two"></view>
+				<view class="object" id="object_three"></view>
+				<view class="object" id="object_four"></view>
+				<view class="object" id="object_five"></view>
+				<view class="object" id="object_six"></view>
+				<view class="object" id="object_seven"></view>
+				<view class="object" id="object_eight"></view>
+				<view class="object" id="object_nine"></view>
+			</view>
+		</view>
+	</view>
+</template>

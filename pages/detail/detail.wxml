@@ -1,0 +1,69 @@
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">{{foodDetail.content.recipes[0].name}}</view>
+</cu-custom>
+
+<import src="../../utils/temp/temp.wxml" />
+<!-- 模态框 -->
+<template is="modalTemp" data="{{modalName:modalName}}"></template>
+<template is="loadTemp" data="{{isLoading:isLoading}}"></template>
+
+
+<!-- 顶部图片 -->
+<view class="bg-img" style="background-image:url({{foodDetail.content.recipes[0].photo}});height:400rpx;width:100%">
+</view> 
+<!-- 食物名字 -->
+<view class="flex-sub text-left">
+  <view class="bold text-xl text-bold padding">
+    <text class="text-black">{{foodDetail.content.recipes[0].name}}</text>
+  </view>
+</view>
+<!-- 作者名字 -->
+<view class="flex-sub text-left">
+  <view class="solid-bottom text-sm padding">
+    <text class="text-grey">{{foodDetail.content.recipes[0].author.name}}</text>
+  </view>
+</view>
+<!-- 用料 -->
+<view  class="solid-bottom">
+  <view class="flex solid-bottom padding justify-between"  bindtap="clk">
+    <view class=" text-xl">
+      <text class="text-black">用料</text>
+    </view>
+    <view class="text-sm text-gray padding-top-sm">
+      <view wx:if="{{isShow}}"><text class="">收起</text><text class="cuIcon-triangleupfill" ></text></view>
+      <view wx:if="{{!isShow}}"><text>展开</text><text class="cuIcon-triangledownfill" ></text></view>
+    </view>
+  </view>
+  <view>
+    <view wx:for="{{foodDetail.content.recipes[0].ingredient}}" wx:key="name" class="child{{!isShow?' hide':''}}">
+      <view class=" padding-xs flex align-center">
+        <view class="flex-sub">
+          <view class="solid-bottom text-df padding flex justify-between">
+            <view class="text-center">{{item.name}}</view>
+            <view class="text-center">{{item.amount}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 步骤 -->
+<view>
+  <view class="text-xl padding solid-bottom">
+    <text class="text-black">步骤</text>
+  </view>
+  <view class="cu-card dynamic " wx:for="{{foodDetail.content.recipes[0].instruction}}" wx:key="step" >
+    <view class="cu-item shadow">
+      <view class="text-content">
+        {{item.text}}
+      </view>
+      <view class="grid flex-sub padding-lr col-1">
+        <view class="bg-img only-img" style="background-image:url({{item.photo800}});">
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+

@@ -1,2 +1,40 @@
-<button open-type="getUserInfo" bindgetuserinfo="mylogin">点击登录</button>
-<view>{{userData.nickName}}</view>
+<view wx:if="{{!isLogin}}">
+<view class="padding flex justify-center"><image class="chuyi" src="cloud://ysp-nkeva.7973-ysp-nkeva-1301966806/未标题-1.gif" mode="aspectFit"></image> </view>
+  <view class="flex justify-center text-grey">唯有爱与美食不可辜负</view>
+  <button class="bg-red" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+</view>
+<!-- 登录页面 -->
+<view wx:if="{{isLogin}}">
+  <view class="UCenter-bg">
+    <image src="{{userData.avatarUrl}}" class="png round shadow" mode="widthFix"></image>
+    <view class="text-xl">{{userData.nickName}}
+    </view>
+    <image src="../../images/wave.gif" mode="scaleToFill" class="gif-wave"></image>
+  </view>
+  <view class="padding flex text-center text-grey bg-white shadow-warp">
+    <view class="flex flex-sub flex-direction solid-right">
+      <view class="text-xxl text-orange">33</view>
+      <view class="margin-top-sm">
+        <text class="cuIcon-footprint"></text> 足迹</view>
+    </view>
+    <view class="flex flex-sub flex-direction solid-right">
+      <view class="text-xxl text-blue">123</view>
+      <view class="margin-top-sm">
+        <text class="cuIcon-favorfill"></text> 收藏</view>
+    </view>
+  </view>
+  <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow radius">
+    <view class="cu-item arrow" bindtap="toabout">
+      <button class="cu-btn content">
+        <text class="cuIcon-info text-cyan"></text>
+        <text class="text-grey">关于</text>
+      </button>
+    </view>
+    <view class="cu-item arrow">
+      <button class="cu-btn content" open-type="feedback">
+        <text class="cuIcon-writefill text-cyan"></text>
+        <text class="text-grey">意见反馈</text>
+      </button>
+    </view>
+  </view>
+</view>

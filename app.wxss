@@ -7,7 +7,9 @@
   justify-content: space-between;
   padding: 200rpx 0;
   box-sizing: border-box;
+  background: #fff;
 } 
 @import "utils/iconfont.wxss";
 @import "colorui/main.wxss";
 @import "colorui/icon.wxss";
+@import "utils/temp/temp.wxss";
