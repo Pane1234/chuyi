@@ -4,15 +4,17 @@ Page({
     //判断小程序的API，回调，参数，组件等是否在当前版本可用。
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     userData:{},
-    isLogin:false
+    isLogin:true
   },
 
   onLoad: function () {
-    var that = this;
     // 查看是否授权
     wx.getSetting({
       success:  (res)=> {
-        if (res.authSetting['scope.userInfo']) {
+        if (!res.authSetting['scope.userInfo']) {
+          // 用户没有授权，显示授权页面,这里不进行操作
+          this.setData({isLogin:false})
+        } else {
           wx.getUserInfo({
             success:  (res)=> {
               // 用户已经授权过,调用微信的 wx.login 接口
@@ -29,8 +31,6 @@ Page({
               })
             }
           });
-        } else {
-          // 用户没有授权，显示授权页面,这里不进行操作
         }
       }
     });

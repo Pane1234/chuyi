@@ -65,7 +65,7 @@
     </view>
   </view>
 </view>
-
+<view class="text-xl text-black text-center">-到底了~-</view>
 <import src="../../utils/temp/temp.wxml" />
 <!-- 模态框 -->
 <template is="modalTemp" data="{{modalName:modalName}}"></template>

@@ -6,7 +6,8 @@
 	<image src="cloud://ysp-nkeva.7973-ysp-nkeva-1301966806/未标题-1.gif" mode="aspectFit" style="height: 200rpx;"></image>
 
 </view>
-	<view class="flex justify-center">
+<view class="about">
 	<view class="text-xl">版本:1.0.0</view>
-	<view></view>
+	<view class="text-sm">杨书鹏</view>
+	<view class="text-sm">18102010225</view>
 </view>

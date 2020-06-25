@@ -1,8 +1,4 @@
-<view wx:if="{{!isLogin}}">
-<view class="padding flex justify-center"><image class="chuyi" src="cloud://ysp-nkeva.7973-ysp-nkeva-1301966806/未标题-1.gif" mode="aspectFit"></image> </view>
-  <view class="flex justify-center text-grey">唯有爱与美食不可辜负</view>
-  <button class="bg-red" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
-</view>
+
 <!-- 登录页面 -->
 <view wx:if="{{isLogin}}">
   <view class="UCenter-bg">
@@ -37,4 +33,10 @@
       </button>
     </view>
   </view>
+</view>
+
+<view  wx:if="{{isLogin==false}}">
+<view class="padding flex justify-center"><image class="chuyi" src="cloud://ysp-nkeva.7973-ysp-nkeva-1301966806/未标题-1.gif" mode="aspectFit"></image> </view>
+  <view class="flex justify-center text-grey">唯有爱与美食不可辜负</view>
+  <button class="bg-red" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
 </view>
