@@ -24,7 +24,7 @@
       <view class="text-xxl text-white">晚餐</view>
     </view>
   </view>
-  <view class="flex-sub padding-sm  radius">
+  <view class="flex-sub padding-sm  radius"  bindtap="mealClick" data-meal="最新菜谱">
     <view class="padding-xl radius shadow-blur bg-white bg-img" style="background-image:url(https://7973-ysp-nkeva-1301966806.tcb.qcloud.la/new.png?sign=0a8d1960fcceb7f8ab5c9f2c8a21ee9f&t=1592812184);">
      <view class="text-xxl text-white"><text  style='display:inline-block;width:1px'></text></view>
     </view>

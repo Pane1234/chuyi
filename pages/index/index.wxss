@@ -1,9 +1,9 @@
 /**index.wxss**/
 /* 顶部厨艺的样式 */
 .chuyi{
-  margin-top: 100rpx;
+  margin-top: 90rpx;
   text-align: center;
-  font-size: 80rpx;
+  font-size: 90rpx;
   padding-bottom: 50rpx;
 }
 .chu{
